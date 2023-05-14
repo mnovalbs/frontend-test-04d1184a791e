@@ -1,1 +1,1 @@
-export { default } from "./PhoneNumberToggler";
+export { default } from "./PhoneNumberMasker";

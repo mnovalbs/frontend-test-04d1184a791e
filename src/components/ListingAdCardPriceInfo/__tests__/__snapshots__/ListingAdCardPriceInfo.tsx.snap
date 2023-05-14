@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingAdCardPriceInfo renders price info 1`] = `
+<div>
+  <div
+    class="priceInfo"
+  >
+    <div
+      class="priceRange"
+    >
+      $2,609
+       - 
+      $3,043
+       psf
+    </div>
+    <div
+      class="subPriceLabel"
+    >
+      Prices from $1.99M
+    </div>
+  </div>
+</div>
+`;

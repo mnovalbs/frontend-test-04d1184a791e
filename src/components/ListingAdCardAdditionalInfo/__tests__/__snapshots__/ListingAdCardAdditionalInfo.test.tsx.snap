@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingAdCardAdditionalInfo renders ListingAdCardAdditionalInfo 1`] = `
+<div>
+  <div>
+    <div>
+      Condo
+       · 
+      2021
+       · 
+      Freehold
+    </div>
+    <div>
+      231 units · 1, 2, 3, 4 bedrooms
+    </div>
+  </div>
+</div>
+`;

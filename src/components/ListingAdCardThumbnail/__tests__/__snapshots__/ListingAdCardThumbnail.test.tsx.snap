@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingAdCardThumbnail renders thumbnail 1`] = `
+<div>
+  <div
+    class="thumbnailContainer"
+  >
+    <img
+      alt="Forett At Bukit Timah"
+      class="thumbnail"
+      height="272"
+      loading="lazy"
+      src="https://images.prismic.io/99-content/dc1594fb-f413-44ff-b8b5-c3ba6cd539cd_vbWkNuxt2hjgidVttoMRDX.jpg?mode=crop&auto=compress&w=544&q=35"
+      srcset="https://images.prismic.io/99-content/dc1594fb-f413-44ff-b8b5-c3ba6cd539cd_vbWkNuxt2hjgidVttoMRDX.jpg?mode=crop&auto=compress&w=544&q=35, https://images.prismic.io/99-content/dc1594fb-f413-44ff-b8b5-c3ba6cd539cd_vbWkNuxt2hjgidVttoMRDX.jpg?mode=crop&auto=compress&w=1088&q=25 2x"
+      width="544"
+    />
+  </div>
+</div>
+`;

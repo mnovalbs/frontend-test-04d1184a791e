@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingAdCardMainInfo renders main info 1`] = `
+<div>
+  <div
+    class="mainInfo"
+  >
+    <img
+      alt="building"
+      height="40"
+      src="/icons/building-icon.svg"
+      width="40"
+    />
+    <div>
+      <h1
+        class="title"
+      >
+        Forett At Bukit Timah
+      </h1>
+      <div
+        class="address"
+      >
+        70 Anchorvale Crescent · D21
+      </div>
+    </div>
+  </div>
+</div>
+`;

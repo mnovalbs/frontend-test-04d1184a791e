@@ -1,0 +1,38 @@
+.priceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+
+.priceRange {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 26px;
+}
+
+.subPriceLabel {
+  color: #787d9c;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+@media screen and (max-width: 768px) {
+  .priceInfo {
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .priceRange {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .subPriceLabel {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

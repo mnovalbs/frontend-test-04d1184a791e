@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { maskPhoneNumber } from "utils/string";
 import { PhoneNumberMaskerProps } from "./PhoneNumberMasker.types";
+import styles from "./PhoneNumberMasker.module.css"
 
 function PhoneNumberMasker({ phoneNumber }: PhoneNumberMaskerProps) {
   const [isNumberShow, setIsNumberShow] = useState(false);
@@ -9,9 +10,9 @@ function PhoneNumberMasker({ phoneNumber }: PhoneNumberMaskerProps) {
   const maskedPhoneNumber = maskPhoneNumber(phoneNumber);
 
   return (
-    <button onClick={toggleNumberShow}>
+    <span className={styles.phoneNumber} onClick={toggleNumberShow}>
       {isNumberShow ? phoneNumber : maskedPhoneNumber}
-    </button>
+    </span>
   );
 }
 

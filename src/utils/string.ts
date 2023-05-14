@@ -8,9 +8,7 @@ export function maskPhoneNumber(str: string, char: string = "X") {
   return str.replace(/\d{4}$/, char.repeat(4));
 }
 
-export function createThumbnailUrls(imageUrl: string, defaultSize?: number) {
-  if (!defaultSize) return [];
-
+export function createThumbnailUrls(imageUrl: string, defaultSize = 544) {
   const imageSizes = [
     { w: defaultSize, q: 35 },
     { w: defaultSize * 2, q: 25 },

@@ -1,13 +1,13 @@
 import { lazy, Suspense, useState } from "react";
-import styles from "./ListingAdCard.module.css";
-
-import { ListingAdCardProps } from "./ListingAdCard.types";
-import { createThumbnailUrls } from "utils/string";
 
 import ListingAdCardMainInfo from "components/ListingAdCardMainInfo";
 import ListingAdCardPriceInfo from "components/ListingAdCardPriceInfo";
 import ListingAdCardAdditionalInfo from "components/ListingAdCardAdditionalInfo";
 import ButtonLink from "components/ButtonLink";
+
+import styles from "./ListingAdCard.module.css";
+import { ListingAdCardProps } from "./ListingAdCard.types";
+import ListingAdCardThumbnail from "components/ListingAdCardThumbnail";
 
 const ListingAdCardDecription = lazy(
   () => import("components/ListingAdCardDescription")
@@ -30,23 +30,11 @@ function ListingAdCard({ ad }: ListingAdCardProps) {
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
 
-  const [imageUrl1x, imageUrl2x] = createThumbnailUrls(pic, 544);
-
   const toggleDescriptionOpen = () => setIsDescriptionOpen((prev) => !prev);
 
   return (
     <div className={styles.listingCard}>
-      <div className={styles.mainPicContainer}>
-        <img
-          className={styles.mainPic}
-          alt={title}
-          loading="lazy"
-          width="300"
-          height="500"
-          src={imageUrl1x}
-          srcSet={`${imageUrl1x}, ${imageUrl2x} 2x`}
-        />
-      </div>
+      <ListingAdCardThumbnail alt={title} src={pic} />
       <div className={styles.mainContentWrapper}>
         <div className={styles.mainContent}>
           <div className={styles.leftContent}>

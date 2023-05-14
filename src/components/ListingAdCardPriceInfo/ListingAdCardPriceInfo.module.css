@@ -18,7 +18,7 @@
   line-height: 19px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .priceInfo {
     text-align: left;
     flex-direction: row;

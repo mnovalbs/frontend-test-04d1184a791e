@@ -1,6 +1,7 @@
 import PhoneNumberMasker from "components/PhoneNumberMasker";
 import { PHONE_NUMBER_REGEX } from "contants/regex";
 import { splitPhoneNumber } from "utils/string";
+
 import { ListingAdCardDecriptionProps } from "./ListingAdCardDecription.types";
 import styles from "./ListingAdCardDecription.module.css"
 

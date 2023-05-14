@@ -49,12 +49,13 @@
   justify-content: end;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .mainContent {
     flex-direction: column;
   }
 
   .mainContentWrapper {
     padding: 16px;
+    font-size: 14px;
   }
 }

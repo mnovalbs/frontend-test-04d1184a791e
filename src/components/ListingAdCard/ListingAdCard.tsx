@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import styles from "./ListingAdCard.module.css";
+
+import { ListingAdCardProps } from "./ListingAdCard.types";
+import { createThumbnailUrls } from "utils/string";
 
 import ListingAdCardMainInfo from "components/ListingAdCardMainInfo";
 import ListingAdCardPriceInfo from "components/ListingAdCardPriceInfo";
-
-import { ListingAdCardProps } from "./ListingAdCard.types";
 import ListingAdCardAdditionalInfo from "components/ListingAdCardAdditionalInfo";
 import ButtonLink from "components/ButtonLink";
-import ListingAdCardDecription from "components/ListingAdCardDescription";
+
+const ListingAdCardDecription = lazy(
+  () => import("components/ListingAdCardDescription")
+);
 
 function ListingAdCard({ ad }: ListingAdCardProps) {
   const {
@@ -24,7 +28,9 @@ function ListingAdCard({ ad }: ListingAdCardProps) {
     availabilities_label: availabilitiesLabel,
   } = ad;
 
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(true);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+
+  const [imageUrl1x, imageUrl2x] = createThumbnailUrls(pic, 544);
 
   const toggleDescriptionOpen = () => setIsDescriptionOpen((prev) => !prev);
 
@@ -34,9 +40,11 @@ function ListingAdCard({ ad }: ListingAdCardProps) {
         <img
           className={styles.mainPic}
           alt={title}
+          loading="lazy"
           width="300"
           height="500"
-          src={pic}
+          src={imageUrl1x}
+          srcSet={`${imageUrl1x}, ${imageUrl2x} 2x`}
         />
       </div>
       <div className={styles.mainContentWrapper}>
@@ -60,9 +68,11 @@ function ListingAdCard({ ad }: ListingAdCardProps) {
           </div>
         </div>
 
-        {isDescriptionOpen && (
-          <ListingAdCardDecription description={description} />
-        )}
+        <Suspense fallback="Loading...">
+          {isDescriptionOpen && (
+            <ListingAdCardDecription description={description} />
+          )}
+        </Suspense>
 
         <div className={styles.listingCardFooter}>
           <ButtonLink onClick={toggleDescriptionOpen}>

@@ -1,3 +1,7 @@
 .phoneNumber {
   cursor: pointer;
 }
+
+.phoneNumber:hover {
+  color: #216bff;
+}

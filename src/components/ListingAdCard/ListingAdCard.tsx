@@ -1,17 +1,14 @@
-import { lazy, Suspense, useState } from "react";
+import { useEffect, useState } from "react";
 
 import ListingAdCardMainInfo from "components/ListingAdCardMainInfo";
 import ListingAdCardPriceInfo from "components/ListingAdCardPriceInfo";
 import ListingAdCardAdditionalInfo from "components/ListingAdCardAdditionalInfo";
+import ListingAdCardThumbnail from "components/ListingAdCardThumbnail";
+import ListingAdCardDecription from "components/ListingAdCardDescription";
 import ButtonLink from "components/ButtonLink";
 
 import styles from "./ListingAdCard.module.css";
 import { ListingAdCardProps } from "./ListingAdCard.types";
-import ListingAdCardThumbnail from "components/ListingAdCardThumbnail";
-
-const ListingAdCardDecription = lazy(
-  () => import("components/ListingAdCardDescription")
-);
 
 function ListingAdCard({ ad }: ListingAdCardProps) {
   const {
@@ -28,9 +25,13 @@ function ListingAdCard({ ad }: ListingAdCardProps) {
     availabilities_label: availabilitiesLabel,
   } = ad;
 
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(true);
 
   const toggleDescriptionOpen = () => setIsDescriptionOpen((prev) => !prev);
+
+  useEffect(() => {
+    setIsDescriptionOpen(false);
+  }, []);
 
   return (
     <div className={styles.listingCard}>
@@ -56,11 +57,9 @@ function ListingAdCard({ ad }: ListingAdCardProps) {
           </div>
         </div>
 
-        <Suspense fallback="Loading...">
-          {isDescriptionOpen && (
-            <ListingAdCardDecription description={description} />
-          )}
-        </Suspense>
+        {isDescriptionOpen && (
+          <ListingAdCardDecription description={description} />
+        )}
 
         <div className={styles.listingCardFooter}>
           <ButtonLink onClick={toggleDescriptionOpen}>
